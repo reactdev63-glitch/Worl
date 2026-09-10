@@ -8,7 +8,7 @@ const Destination = () => {
 
   const [activeRegion, setActiveRegion] = useState("ALL");
 
-  const navigate =  useNavigate();
+  const navigate = useNavigate();
 
   const regionMap = {
     Kashmir: "ASIA",
@@ -41,27 +41,35 @@ const Destination = () => {
         );
 
   return (
-    <div className="bg-[#f7f5ef] w-[80%] max-w-[1320px] mx-auto">
+    <div className="bg-[#f7f5ef] w-[90%] md:w-[85%] lg:w-[80%] max-w-[1320px] mx-auto">
 
+      {/* HERO */}
       <section>
 
-        <div className="max-w-[750px] mx-auto text-center pt-14 pb-20">
+        <div className="w-[92%] sm:w-[90%] max-w-[750px] mx-auto text-center pt-10 sm:pt-14 pb-12 sm:pb-20">
 
-          <p className="text-[9px] tracking-[2px] text-[#b89550] font-medium mb-4">
+          <p className="text-[8px] sm:text-[9px] tracking-[2px] text-[#b89550] font-medium mb-3 sm:mb-4">
             EXPLORE THE WORLD
           </p>
 
-          <h1 className="font-serif text-[48px] leading-[1.05] text-[#102f35]">
+          <h1 className="font-serif text-[36px] sm:text-[42px] md:text-[48px] leading-[1.05] text-[#102f35]">
             Destinations
           </h1>
 
-          <p className="text-[13px] leading-6 text-gray-500 mt-4">
+          <p className="text-[11px] sm:text-[12px] md:text-[13px] leading-5 sm:leading-6 text-gray-500 mt-4">
             Discover the remarkable places where our journeys begin —
             from Himalayan valleys and Mediterranean shores to tropical
             islands and wild landscapes.
           </p>
 
-          <button className="text-[8px] tracking-[2px] text-[#102f35] mt-7">
+          <button
+            onClick={() => {
+              document
+                .getElementById("destinations")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="text-[8px] tracking-[2px] text-[#102f35] mt-6 sm:mt-7 hover:text-[#b89550] transition cursor-pointer"
+          >
             EXPLORE ALL ↓
           </button>
 
@@ -70,23 +78,26 @@ const Destination = () => {
       </section>
 
 
-      {/* DESTINATIONS */}      
-      <section className="w-[94%] max-w-[1320px] mx-auto pb-20">
+      {/* DESTINATIONS */}
+      <section
+        id="destinations"
+        className="w-[92%] sm:w-[94%] max-w-[1320px] mx-auto pb-12 sm:pb-16 md:pb-20"
+      >
 
         {/* Heading + Filter */}
-        <div className="flex items-end justify-between mb-7">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-7">
 
           <div>
 
-            <p className="text-[9px] tracking-[2px] text-[#b89550] font-medium mb-2">
+            <p className="text-[8px] sm:text-[9px] tracking-[2px] text-[#b89550] font-medium mb-2">
               WHERE WE GO
             </p>
 
-            <h2 className="font-serif text-[26px] leading-none text-[#102f35]">
+            <h2 className="font-serif text-[23px] sm:text-[26px] leading-none text-[#102f35]">
               Choose Your Destination
             </h2>
 
-            <p className="text-[9px] text-gray-500 mt-2">
+            <p className="text-[9px] sm:text-[10px] text-gray-500 mt-2 max-w-[450px] leading-5">
               Find a place that inspires you and discover the journeys
               available there.
             </p>
@@ -95,40 +106,41 @@ const Destination = () => {
 
 
           {/* FILTER */}
+          <div className="w-full lg:w-auto overflow-x-auto">
 
-          <div className="flex items-center gap-7">
+            <div className="flex items-center gap-5 sm:gap-7 min-w-max">
 
-            {regions.map((region) => (
+              {regions.map((region) => (
 
-              <button
-                key={region}
-                onClick={() => setActiveRegion(region)}
-                className={`text-[8px] tracking-[1px] pb-2 transition relative ${
-                  activeRegion === region
-                    ? "text-[#102f35]"
-                    : "text-gray-500 hover:text-[#102f35] cursor-pointer"
-                }`}
-              >
+                <button
+                  key={region}
+                  onClick={() => setActiveRegion(region)}
+                  className={`text-[8px] tracking-[1px] pb-2 transition relative whitespace-nowrap ${
+                    activeRegion === region
+                      ? "text-[#102f35]"
+                      : "text-gray-500 hover:text-[#102f35] cursor-pointer"
+                  }`}
+                >
 
+                  {region}
 
-                {region}
+                  {activeRegion === region && (
+                    <span className="absolute left-0 right-0 bottom-0 h-[1px] bg-[#d7b66b]" />
+                  )}
 
-                {activeRegion === region && (
-                  <span className="absolute left-0 right-0 bottom-0 h-[1px] bg-[#d7b66b]" />
-                )}
+                </button>
 
-              </button>
+              ))}
 
-            ))}
+            </div>
 
           </div>
 
         </div>
 
 
-
         {/* DESTINATION GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 sm:gap-x-6 gap-y-9 sm:gap-y-12">
 
           {filteredPackages.map((item) => (
 
@@ -138,54 +150,49 @@ const Destination = () => {
             >
 
               {/* IMAGE */}
-
               <div className="overflow-hidden">
 
                 <img
                   src={item.image}
                   alt={item.destination}
-                  className="w-full h-[230px] object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="w-full h-[220px] sm:h-[240px] md:h-[260px] lg:h-[230px] xl:h-[250px] object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
 
               </div>
 
 
               {/* CONTENT */}
-
-              <div className="pt-4">
+              <div className="pt-3 sm:pt-4">
 
                 {/* CATEGORY */}
-
-                <p className="text-[8px] tracking-[1px] text-[#102f35] uppercase">
+                <p className="text-[7px] sm:text-[8px] tracking-[1px] text-[#102f35] uppercase">
                   {item.destination} · {regionMap[item.destination]}
                 </p>
 
 
                 {/* DESTINATION NAME */}
-
-                <h3 className="font-serif text-[20px] text-[#102f35] mt-2">
+                <h3 className="font-serif text-[18px] sm:text-[20px] text-[#102f35] mt-2">
                   {item.destination}
                 </h3>
 
 
                 {/* DESCRIPTION */}
-
-                <p className="text-[10px] leading-5 text-gray-500 mt-2 max-w-[330px]">
+                <p className="text-[9px] sm:text-[10px] leading-5 text-gray-500 mt-2 max-w-[330px]">
                   {item.description}
                 </p>
 
 
                 {/* BOTTOM */}
+                <div className="flex items-center justify-between gap-3 border-t border-[#e3ded4] mt-4 pt-3">
 
-                <div className="flex items-center justify-between border-t border-[#e3ded4] mt-4 pt-3">
-
-                  <span className="text-[8px] tracking-[1px] text-gray-500">
+                  <span className="text-[7px] sm:text-[8px] tracking-[1px] text-gray-500">
                     {item.details?.gallery?.length || 1} JOURNEYS
                   </span>
 
-                  <button onClick={() => navigate('/explore')} className="text-[8px] tracking-[1.5px] text-[#102f35] group-hover:text-[#b89550] transition cursor-pointer
-                  
-                  ">
+                  <button
+                    onClick={() => navigate("/explore")}
+                    className="text-[7px] sm:text-[8px] tracking-[1.5px] text-[#102f35] group-hover:text-[#b89550] transition cursor-pointer whitespace-nowrap"
+                  >
                     EXPLORE →
                   </button>
 
@@ -198,6 +205,22 @@ const Destination = () => {
           ))}
 
         </div>
+
+
+        {/* NO RESULTS */}
+        {filteredPackages.length === 0 && (
+          <div className="text-center py-16">
+
+            <p className="text-[10px] tracking-[1.5px] text-gray-400">
+              NO JOURNEYS AVAILABLE
+            </p>
+
+            <p className="text-[11px] text-gray-500 mt-2">
+              Try selecting another region.
+            </p>
+
+          </div>
+        )}
 
       </section>
 
