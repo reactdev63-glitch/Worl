@@ -28,7 +28,7 @@ import Swisspack from './Swisspack.webp'
 import Limitedpriv from './Limitedpriv.webp'
 import Limitedpriv2 from './Limitedpriv2.webp'
 
-import Mountback from './Mountback.png'
+import Mountback from './MountBack.png'
 
 
 import Coasts from './Coasts.webp'
