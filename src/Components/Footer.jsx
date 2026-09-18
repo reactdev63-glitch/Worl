@@ -93,23 +93,23 @@ const Footer = () => {
                         <div className="space-y-2.5 text-[10px] sm:text-[11px]">
 
                             <p className="hover:text-white transition cursor-pointer">
-                                Archipelagos
+                                Coastal Silence
                             </p>
 
                             <p className="hover:text-white transition cursor-pointer">
-                                Alpine Sanctuaries
+                                High Passes
                             </p>
 
                             <p className="hover:text-white transition cursor-pointer">
-                                Desert Solitudes
+                                Secluded Villas
                             </p>
 
                             <p className="hover:text-white transition cursor-pointer">
-                                Private Islands
+                                Ayurveda & Zen
                             </p>
 
                             <p className="hover:text-white transition cursor-pointer">
-                                Curated Deals
+                                Heritage Rites
                             </p>
 
                         </div>
@@ -127,23 +127,23 @@ const Footer = () => {
                         <div className="space-y-2.5 text-[10px] sm:text-[11px]">
 
                             <p className="hover:text-white transition cursor-pointer">
-                                Trip Architect
+                                Kashmir Great Lakes Trek & Houseboat
                             </p>
 
                             <p className="hover:text-white transition cursor-pointer">
-                                Budget Planner
+                                Kerala Backwater & Spice Sanctuary
                             </p>
 
                             <p className="hover:text-white transition cursor-pointer">
-                                Compare Itineraries
+                                Kyoto Solitude & Ryokan
                             </p>
 
                             <p className="hover:text-white transition cursor-pointer">
-                                Travel Concierge
+                                Atacama Desert Celestial Observatories
                             </p>
 
                             <p className="hover:text-white transition cursor-pointer">
-                                Travel Passport
+                                Summer Alps & Fjord Sanctuaries
                             </p>
 
                         </div>
