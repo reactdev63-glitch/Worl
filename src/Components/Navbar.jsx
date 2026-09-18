@@ -6,7 +6,7 @@ const Navbar = ({ setshowLogin }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navLinkClass = ({ isActive }) =>
-    `text-lg font-medium transition-all duration-300 ${
+    `text-lg font-medium transition-all duration-150 ease-out  ${
       isActive
         ? 'text-[#142B32] border-b-2 border-[#C9A86A] pb-1'
         : 'text-[#142B32] hover:text-[#C9A86A]'
